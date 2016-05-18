@@ -1,0 +1,26 @@
+.container
+  .row
+    .col-sm-8.messages
+
+      - if @messages
+        = react_component 'MessagesContainer', { messagesPath: api_messages_path }
+        / TODO Infinite scroll maybe more appropriate, but just paginate messages for quick solution
+        = will_paginate @messages, :renderer => BootstrapPagination::Rails
+
+      - else
+        h1 There are no messages yet.
+        h2 Be the first!
+
+    .col-sm-4.tags
+      .panel.panel-info
+        .panel-heading Tags
+        - if @tags
+          ul.list-group
+            - @tags.each do |tag|
+              li.list-group-item
+                = tag.name.truncate 50
+                span.badge.right
+                  = tag.messages.count
+        - else
+          .panel-body
+            p No tags found.

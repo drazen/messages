@@ -1,0 +1,90 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// custom icomoon icons
+// TODO - create from vector originals for faster loading, scalable icons
+// TODO - replace fontawesome CDN with our own minimal selection of icomoon icons
+// compiled into vendor assets
+//@import 'icons';
+
+// Brand colors
+$primary-color: #002C45;
+$background-subtle: #fbfbfb;
+$background-loud: #EAF7FC;
+
+$dark-color: #262B2D;
+$grey-color: #555555;
+$primary-light-color: #8BD7F8;
+$loud-color: #F17B20;
+$important-color: #E85452;
+$subtle-color: #28B0AA;
+$subtle-dark-color: #6880C3;
+$success-color: #6AC073;
+
+// make all images responsive by default
+img {@extend .img-responsive; margin: 0 auto; }
+
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  // background-color: #eee;
+  background-color: $background-subtle;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+}
+
+body {
+  margin: 0px 0px;
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
+.navbar {
+  background-color: $primary-color;
+  box-shadow: 0 2px 0 darken($primary-color, 15%);
+}
+
+.navbar-brand {
+  padding-top: 10px;
+}
+
+.messages {
+  padding-top: 30px;
+  .well {
+    background-color: white;
+  }
+}
+.tags {
+  padding-top: 30px;
+}
+
+.message-enter {
+  opacity: 0.01;
+  transform: translateX(-100em);
+  transition: all 1s ease-in;
+}
+
+.message-enter.message-enter-active {
+  opacity: 1;
+  transform: translateX(0em);
+}
+
+.message-leave {
+  opacity: 1;
+  transform: translateX(-200em);
+  transition: all 1s ease-in;
+}
+
+.message-leave.message-leave-active {
+  opacity: 0.01;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: white;
+  }
+}
